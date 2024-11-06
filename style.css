@@ -7,6 +7,13 @@
     font-family: 'Oswald', sans-serif;
 }
 
+img{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    color: #FFF;
+}
+
 header{
     z-index: 999;
     position: absolute;
