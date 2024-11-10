@@ -117,6 +117,7 @@ section{
 
 .home .content p{
     margin-bottom: 30px;
+    font-size: 1.5em;
 }
 
 .home .content a{
@@ -261,7 +262,7 @@ section{
 
     .menu-btn{
         background: url(menubtn.png)no-repeat;
-        background-size: 250px;
+        background-size: 60px;
         background-position: center;
         width: 40px;
         height: 40px;
