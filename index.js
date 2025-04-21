@@ -6,10 +6,14 @@ menuBtn.addEventListener('click', () => {
     navigation.classList.toggle('active');
 });
 
-// Javascript for the slider video thing //
 const btns = document.querySelectorAll('.nav-btn');
 const slides = document.querySelectorAll('.video-slide');
 const contents = document.querySelectorAll('.content');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentSlide = 0;
+const totalSlides = slides.length;
 
 var sliderNav = function(manual){
     btns.forEach((btn) => {
@@ -27,10 +31,30 @@ var sliderNav = function(manual){
     btns[manual].classList.add('active');
     slides[manual].classList.add('active');
     contents[manual].classList.add('active');
+    
+    currentSlide = manual;
 }
+
+sliderNav(0);
 
 btns.forEach((btn, i) => {
     btn.addEventListener('click', () => {
         sliderNav(i);
     });
+});
+
+prevBtn.addEventListener('click', () => {
+    let index = currentSlide - 1;
+    if(index < 0) {
+        index = totalSlides - 1;
+    }
+    sliderNav(index);
+});
+
+nextBtn.addEventListener('click', () => {
+    let index = currentSlide + 1;
+    if(index >= totalSlides) {
+        index = 0;
+    }
+    sliderNav(index);
 });

@@ -173,6 +173,35 @@ section{
     margin-bottom: 12px;
 }
 
+.slider-navigation .nav-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.slider-navigation .arrow-btn {
+    color: #FFF;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 10px;
+    background: transparent;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    outline: none;
+    border: none;
+}
+ 
+.slider-navigation .arrow-btn:hover {
+    transform: scale(1.2);
+    color: #fa4454;
+}
+
 .slider-navigation .nav-btn{
     width: 12px;
     height: 12px;
@@ -181,6 +210,8 @@ section{
     cursor: pointer;
     box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
     transition: 0.3s ease;
+    outline: none;
+    border: none;
 }
 
 .slider-navigation .nav-btn.active{
