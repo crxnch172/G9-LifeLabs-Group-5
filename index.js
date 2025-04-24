@@ -58,3 +58,51 @@ nextBtn.addEventListener('click', () => {
     }
     sliderNav(index);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mediaIcons = document.querySelector('.media-icons');
+    const icons = document.querySelectorAll('.media-icons a');
+    const iconWidth = icons[0]?.offsetWidth || 36;
+    const gap = 20; 
+    
+    let scrollPosition = 0;
+    let autoScrollInterval;
+    let isHovering = false;
+    function scrollIcons() {
+        if (isHovering) return;
+        
+        scrollPosition += 1;
+        const maxScroll = icons.length * (iconWidth + gap);
+        
+        if (scrollPosition >= maxScroll) {
+            scrollPosition = 0;
+        }
+        
+        mediaIcons.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+    function startAutoScroll() {
+        if (!autoScrollInterval) {
+            autoScrollInterval = setInterval(scrollIcons, 50);
+        }
+    }
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
+    mediaIcons.addEventListener('mouseenter', function() {
+        isHovering = true;
+        stopAutoScroll();
+    });
+    
+    mediaIcons.addEventListener('mouseleave', function() {
+        isHovering = false;
+        startAutoScroll();
+    });
+    startAutoScroll();
+});
